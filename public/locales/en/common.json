@@ -1,0 +1,54 @@
+{
+  "catalog": {
+    "title": "Product Details",
+    "dimensions": "Dimensions",
+    "color": "Color",
+    "stock": "In Stock",
+    "weight": "Weight",
+    "price": "Price",
+    "default_image": "Default Image",
+    "view_details": "view details",
+    "add_to_cart": "Add to cart",
+    "added_to_cart": "Added to cart",
+    "on_request_info": "on request info",
+    "on_request": "Закончилось",
+    "thickness": "Thickness",
+    "min_order_warning": "Minimum order 100 quantity"
+  },
+
+  "miniCart": {
+    "your_cart": "Your card",
+    "items": "Products",
+    "total": "Итог",
+    "cart": "Корзина",
+    "total_price": "total",
+    "empty": "Корзина пуста",
+    "go_to_cart": "Оформить заказ"
+  },
+
+  "home_banner":{
+    "title1": "Production of branded polyethylene bags for your business",
+    "description1": "We constantly maintain the quality of our products and have been manufacturing for 27 years",
+    "button1": "Contact a specialist",
+    "title2": "Contact us",
+    "description2": "We constantly maintain the quality of our products and have been manufacturing for 27 years",
+    "button2": "Contact a specialist"
+},
+
+"about_banner": {
+  "title1": "About us",
+  "description1": "Мы постоянно поддерживаем качество нашей продукции и занимаемся производством уже 27 лет",
+  "button1": "Написать специалисту",
+  "title2": "Свяжитесь с нами",
+  "description2": "Мы постоянно поддерживаем качество нашей продукции и занимаемся производством уже 27 лет",
+  "button2": "Написать специалисту"
+},
+
+"advantages": {
+  "clients": "Satisfied clients",
+  "years": "Years of production experience",
+  "quality": "Quality",
+  "cheaper": "Cheaper than all manufacturers"
+}
+
+}

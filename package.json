@@ -1,0 +1,31 @@
+{
+  "name": "pakets",
+  "version": "0.1.0",
+  "private": true,
+  "scripts": {
+    "dev": "next dev --turbopack",
+    "build": "next build",
+    "start": "next start",
+    "lint": "next lint",
+    "seed": "node prisma/seed.js"
+  },
+  "dependencies": {
+    "@prisma/client": "^6.0.1",
+    "autoprefixer": "^10.4.20",
+    "daisyui": "^4.12.22",
+    "framer-motion": "^11.15.0",
+    "leaflet": "^1.9.4",
+    "next": "15.1.0",
+    "next-i18next": "^15.4.0",
+    "prisma": "^6.0.1",
+    "prop-types": "^15.8.1",
+    "react": "^19.0.0",
+    "react-dom": "^19.0.0",
+    "react-icons": "^5.4.0",
+    "react-leaflet": "^5.0.0"
+  },
+  "devDependencies": {
+    "postcss": "^8.4.49",
+    "tailwindcss": "^3.4.16"
+  }
+}

@@ -1,0 +1,85 @@
+datasource db {
+  provider = "sqlite"
+  url      = env("DATABASE_URL")
+}
+
+generator client {
+  provider = "prisma-client-js"
+}
+
+
+
+model Order {
+  id                Int          @id @default(autoincrement())
+  fullName          String
+  phone             String
+  email             String
+  additionalPhone   String?
+  comment           String?
+  totalPrice        Float
+  orderDate         DateTime     @default(now()) // Дата создания заказа
+  deliveryMethodId  Int
+  status            String       @default("PENDING") // Статус заказа, строка вместо enum
+  deliveryMethod    DeliveryMethod @relation(fields: [deliveryMethodId], references: [id])
+  orderItems        OrderItem[]  // Связь с товарами
+}
+
+
+model OrderItem {
+  id        Int     @id @default(autoincrement())
+  orderId   Int
+  productId Int     // Здесь будет ID товара
+  quantity  Int     // Количество товара
+  price     Float   // Цена за единицу товара
+  order     Order   @relation(fields: [orderId], references: [id]) // Связь с Order
+}
+
+
+model DeliveryMethod {
+  id          Int      @id @default(autoincrement())
+  name        String   // Название способа доставки
+  price       Float    // Цена доставки
+  orders      Order[]  // Связь с заказами
+}
+
+model Package {
+  id              Int      @id @default(autoincrement())
+  name            String
+  dimensions      String   // Габариты упаковки (ДxШxВ)
+  quantityPerBox  Int      // В коробке/мешке
+  polyethylene    String   // Вид полиэтилена
+  thickness       String   // Толщина пакета
+  size            String   // Размер пакета
+  color           String   // Цвет пакета
+  sideFoldsSize   String   // Размер боковых складок
+  hasSideFolds    Boolean  // Боковые складки
+  hasPrint        Boolean  // Рисунок на пакете
+  packing         String   // Упаковка
+  stockQuantity   Int      // На складе
+  weight          Float    // Вес
+  price           Float    @default(0.0) // Устанавливаем дефолтное значение
+  volume          Float    // Объем
+  description     String?  // Описание
+  imageUrl        String?  // Ссылка на фото
+  translations    PackageTranslation[] // Связь с переводами
+  sizes           PackageSize[]    // Связь с размерами
+}
+
+model PackageSize {
+  id          Int     @id @default(autoincrement())
+  packageId   Int
+  size        String  // Размер пакета
+  sideFolds   String? // Размер боковых складок (если есть)
+  stockQuantity Int   // Количество на складе для данного размера
+  price       Float   // Цена для данного размера
+  package     Package   @relation(fields: [packageId], references: [id], onDelete: Cascade) // Каскадное удаление
+}
+
+
+model PackageTranslation {
+  id        Int    @id @default(autoincrement())
+  packageId Int
+  language  String // Например, 'en', 'ru'
+  name      String // Переведенное название
+  package   Package @relation(fields: [packageId], references: [id], onDelete: Cascade)
+}
